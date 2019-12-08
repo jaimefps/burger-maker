@@ -2,4 +2,4 @@
 
 Sample app project to teach young kids about javascript.
 
-![alt text](ux.png)
+![alt text](burger-maker.gif)
