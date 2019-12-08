@@ -83,9 +83,9 @@ body {
 .cushined {
   margin: 1px auto;
   padding: 20px 0;
-  transition: padding 1s;
 }
 
 .flattened {
   padding: 0;
+  transition: padding 0.5s;
 }

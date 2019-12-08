@@ -10,7 +10,7 @@ function createTransContainer () {
   const transContainer = document.createElement('div');
   transContainer.classList.add('cushined');
   transContainer.style.cssFloat = 'bottom';
-  setTimeout(() => transContainer.classList.add('flattened'), 500);
+  setTimeout(() => transContainer.classList.add('flattened'), 50);
   return transContainer;
 }
 
