@@ -1,12 +1,18 @@
-function appendToBtns (node) {
+/**
+ * Populate Screen:
+ */
+function addToButtonsBox (node) {
   document.getElementById('buttons-container').append(node);
 }
 
-function prependToBurg(node) {
+function addToBurgerBox(node) {
   document.getElementById('burger-container').prepend(node);
 }
 
-function createTransContainer () {
+/**
+ * Create Burger Elements:
+ */
+function createTransitionContainer () {
   const transContainer = document.createElement('div');
   transContainer.classList.add('cushined');
   transContainer.style.cssFloat = 'bottom';
@@ -20,13 +26,13 @@ function createBun() {
   return bun;
 }
 
-function createBottomBun () {
+function createBunBottom () {
   const bun = createBun();
   bun.classList.add('bun-bottom');
   return bun;
 }
 
-function createTopBun () {
+function createBunTop () {
   const bun = createBun();
   bun.classList.add('bun-top');
   return bun;
@@ -50,40 +56,43 @@ function createPlate() {
   return node;
 }
 
+/**
+ * Create Buttons:
+ */
 const pattyBtn = document.createElement('button');
 pattyBtn.innerText = 'Patty';
 pattyBtn.classList.add('btn');
 pattyBtn.onclick = function() {
-  const container = createTransContainer();
+  const container = createTransitionContainer();
   container.append(createPatty());
-  prependToBurg(container);
+  addToBurgerBox(container);
 }
 
 const cheeseBtn = document.createElement('button');
 cheeseBtn.innerText = 'Cheese';
 cheeseBtn.classList.add('btn');
 cheeseBtn.onclick = function() {
-  const container = createTransContainer();
+  const container = createTransitionContainer();
   container.append(createCheese());
-  prependToBurg(container);
+  addToBurgerBox(container);
 }
 
 const bunBottomBtn = document.createElement('button');
 bunBottomBtn.innerText = 'Bottom Bun';
 bunBottomBtn.classList.add('btn');
 bunBottomBtn.onclick = function() {
-  const container = createTransContainer();
-  container.append(createBottomBun());
-  prependToBurg(container);
+  const container = createTransitionContainer();
+  container.append(createBunBottom());
+  addToBurgerBox(container);
 }
 
 const bunTopBtn = document.createElement('button');
 bunTopBtn.innerText = 'Top Bun';
 bunTopBtn.classList.add('btn');
 bunTopBtn.onclick = function() {
-  const container = createTransContainer();
-  container.append(createTopBun());
-  prependToBurg(container);
+  const container = createTransitionContainer();
+  container.append(createBunTop());
+  addToBurgerBox(container);
 }
 
 const cleanPlateBtn = document.createElement('button');
@@ -93,14 +102,16 @@ cleanPlateBtn.classList.add('btn-delete');
 cleanPlateBtn.onclick = function() {
   const burgCont = document.getElementById('burger-container');
   burgCont.innerHTML = null;
-  prependToBurg(createPlate());
+  addToBurgerBox(createPlate());
 }
 
+/**
+ * Add items on screen load:
+ */
+addToButtonsBox(bunBottomBtn);
+addToButtonsBox(pattyBtn);
+addToButtonsBox(cheeseBtn);
+addToButtonsBox(bunTopBtn);
+addToButtonsBox(cleanPlateBtn);
 
-appendToBtns(bunBottomBtn);
-appendToBtns(pattyBtn);
-appendToBtns(cheeseBtn);
-appendToBtns(bunTopBtn);
-appendToBtns(cleanPlateBtn);
-
-prependToBurg(createPlate());
+addToBurgerBox(createPlate());
